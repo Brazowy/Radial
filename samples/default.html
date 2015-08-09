@@ -27,7 +27,7 @@
           var menu = Radial.create();
 
           menu.addItem({
-            label: 'Custom menu',
+            label: 'Nested',
             click: function() {
               var menu = Radial.create();
 
@@ -43,6 +43,17 @@
               Radial.display(menu);
             }
           });
+
+          var items = ['Some', 'Other', 'Items', 'Test'];
+
+          for (var i = 0; i < items.length; i++) {
+            menu.addItem({
+              label: items[i],
+              click: function() {
+                Radial.close();
+              }
+            });
+          }
 
           Radial.instantiate({
             element: document.getElementsByTagName('body').item(0),

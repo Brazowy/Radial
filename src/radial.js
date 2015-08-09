@@ -101,10 +101,14 @@ var Radial = {
     if (this.stack.length === 0) return this;
 
     var menu = this.getMenu();
-
+    var x = 0, y = 0, angle = 0;
+    var increase = Math.PI * 2 / menu.items.length;
     var ol = document.createElement('ol');
 
     menu.items.forEach(function(item) {
+      x = 100 * Math.cos(angle) + 200;
+      y = 100 * Math.sin(angle) + 200;
+
       var anchor = document.createElement('a');
       anchor.href = '#';
       anchor.appendChild(document.createTextNode(item.label));
@@ -115,7 +119,11 @@ var Radial = {
       });
 
       var li = document.createElement('li');
+      li.style.left = x + 'px';
+      li.style.top = y + 'px';
       li.appendChild(anchor);
+
+      angle += increase;
 
       ol.appendChild(li);
     });

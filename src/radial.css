@@ -7,3 +7,14 @@
 #radial.hidden {
   display:none;
 }
+
+#radial ol {
+  position:relative;
+  width:400px;
+  height:400px;
+}
+
+#radial li {
+  position:absolute;
+  white-space:nowrap;
+}
